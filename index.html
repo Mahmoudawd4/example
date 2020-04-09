@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/index_style.css">
+        </head>
+    <body>
+
+        <div class="container my-5">
+            <label>Product Name</label>
+            <input type="text" class="form-control" id="ProductName">
+
+
+            <label>Product Price</label>
+            <input type="text" class="form-control" id="ProductPrice">
+
+
+
+            <label>Product Category</label>
+            <input type="text" class="form-control" id="ProductCatago">
+
+
+            <label>Product Descripion</label>
+            <textarea  class="form-control" id="ProductDesc">
+            </textarea>
+
+
+
+            <button class="btn btn-info btn-lg my-5" id="add-btn" onclick="addProduct()">Add Product</button>
+
+        </div>
+        <div class="container">
+            <input type="text" class="form-control w-75 m-auto" placeholder="Serach Product" onkeyup=" serachProduct(this.value)">
+        </div>
+        <div class="container my-5">
+            <table class="table text-center">
+                <thead>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Product Category</th>
+                    <th>Product Descripion</th>
+                    <th>Product Delete</th>
+                    <th>Product updata</th>
+                </thead>
+                <tbody id="tableAdd">
+                    
+
+
+                </tbody>
+            </table>
+        </div> 
+        <script src="js/main.js"></script>
+        <script src="js/jquery-3.4.1.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
