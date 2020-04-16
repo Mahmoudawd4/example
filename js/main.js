@@ -2,9 +2,36 @@ var prodauctNameInp = document.getElementById("ProductName");
 var prodauctPriceInp = document.getElementById("ProductPrice");
 var prodauctCataInp = document.getElementById("ProductCatago");
 var prodauctDescInp = document.getElementById("ProductDesc");
-
-
+var addBtn=document.getElementById("add-btn");
+var currentindex=0;
 var productContianer ;
+
+addBtn.addEventListener("click" , function(){
+    if (addBtn.innerHTML == "add")
+    {
+        addProduct()
+    }
+    else
+    {
+        savaUpdata();
+    }
+})
+function savaUpdata(){
+    var products=
+    {
+        name : prodauctNameInp.value ,
+        price : prodauctPriceInp.value ,
+        cate : prodauctCataInp.value ,
+        desc : prodauctDescInp.value ,
+
+    }
+    productContianer[currentindex]=products
+    localStorage.setItem("allProductStorge" , JSON.stringify(productContianer) );
+    productDisply();
+    clearData();
+
+}
+
 
 
 /*
@@ -129,23 +156,12 @@ function deletProduct(e){
 }
 
 function updataProduct(e){
-    var term=[];
-    term = JSON.parse(localStorage.getItem("allProductStorge"));
-    console.log(term[e].name);
-    var    uName= prodauctNameInp.value=term[e].name ;
-    var    uPrice= prodauctPriceInp.value=term[e].price ;
-    var    ucate= prodauctCataInp.value=term[e].cate ;
-    var    udesc= prodauctDescInp.value=term[e].desc;
-    localStorage.setItem("allProductStorge" , JSON.stringify(productContianer[e].name));
-    localStorage.setItem("allProductStorge" , JSON.stringify(productContianer[e].price));
-    localStorage.setItem("allProductStorge" , JSON.stringify(productContianer[e].cate));
-    localStorage.setItem("allProductStorge" , JSON.stringify(productContianer[e].desc));
-    productDisply();
+    currentindex =e;
+    prodauctNameInp.value=productContianer[e].name ;
+    prodauctPriceInp.value=productContianer[e].price ;
+    prodauctCataInp.value=productContianer[e].cate ;
+    prodauctDescInp.value=productContianer[e].desc;
 
-}
-
-
-function welcomProduct()
-{
+    addBtn.innerHTML="updata";    
 
 }
